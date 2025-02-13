@@ -36,7 +36,7 @@
                  (not= (:row first-key-loc) (:row current-loc))))
       (let [indent-spaces (dec (:col first-key-loc))]
         (cond-> zloc
-          (> indent-spaces 0)
+          (pos? indent-spaces)
           (z/insert-space-right indent-spaces)
           :always
           z/insert-newline-right))
